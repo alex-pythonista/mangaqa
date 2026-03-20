@@ -13,7 +13,7 @@ from sqlalchemy import text
 
 from app.config import settings
 from app.database import async_session, engine
-from app.routers import health
+from app.routers import chapters, health, projects
 
 
 @asynccontextmanager
@@ -43,3 +43,5 @@ app.add_middleware(
 )
 
 app.include_router(health.router, tags=["health"])
+app.include_router(projects.router, prefix="/api", tags=["projects"])
+app.include_router(chapters.router, prefix="/api", tags=["chapters"])

@@ -39,6 +39,31 @@ npm run dev
 - Routes in `app/routers/`
 - Config via pydantic-settings in `app/config.py` — all settings come from env vars
 - Database: Supabase PostgreSQL + pgvector
+- Migrations: Alembic (async) in `backend/alembic/`
+- DB connection uses Session Pooler (pgbouncer) — requires `statement_cache_size=0` in connect_args
+
+### Database Schema
+
+![Database schema](mangaqa_db_schema.png)
+
+6 tables: `projects` → `chapters` → `dialogue_lines` → `embeddings`, `projects` → `analysis_jobs` → `qa_results`, with `qa_results` also referencing `dialogue_lines`.
+
+### Database Migrations
+```bash
+cd backend
+
+# Generate a new migration after changing models
+.venv/bin/alembic revision --autogenerate -m "describe change"
+
+# Apply migrations
+.venv/bin/alembic upgrade head
+
+# Check current migration state
+.venv/bin/alembic current
+
+# Rollback one migration
+.venv/bin/alembic downgrade -1
+```
 
 ### Frontend
 - Vite + React + TypeScript
