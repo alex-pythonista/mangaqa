@@ -37,3 +37,51 @@ export interface ChapterUpload {
   title: string | null;
   pages: PageInput[];
 }
+
+export type CheckerType = 'untranslated' | 'consistency' | 'voice' | 'tone';
+export type Severity = 'critical' | 'warning' | 'info';
+export type JobStatus = 'pending' | 'running' | 'completed' | 'failed';
+
+export interface JobResponse {
+  id: string;
+  project_id: string;
+  status: JobStatus;
+  progress: string | null;
+  error_message: string | null;
+  created_at: string;
+  started_at: string | null;
+  completed_at: string | null;
+}
+
+export interface DialogueLineContext {
+  page_number: number;
+  panel_id: number;
+  speaker: string | null;
+  text: string;
+  line_type: string;
+}
+
+export interface QAResult {
+  id: string;
+  checker_type: CheckerType;
+  severity: Severity;
+  title: string;
+  description: string;
+  suggestion: string | null;
+  context: Record<string, unknown> | null;
+  dialogue_line: DialogueLineContext | null;
+}
+
+export interface ReportSummary {
+  total_issues: number;
+  by_severity: Record<string, number>;
+  by_checker: Record<string, number>;
+}
+
+export interface ReportResponse {
+  project_id: string;
+  job_id: string;
+  job_completed_at: string | null;
+  summary: ReportSummary;
+  issues: QAResult[];
+}

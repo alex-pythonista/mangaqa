@@ -1,0 +1,42 @@
+{
+  "chapter_number": 1,
+  "title": "The Promise",
+  "pages": [
+    {
+      "page_number": 1,
+      "panels": [
+        { "panel_id": 1, "speaker": null, "text": "In a world where demons roam freely...", "type": "narration" },
+        { "panel_id": 2, "speaker": "Kaito", "text": "I'll protect this village, no matter what!", "type": "dialogue" },
+        { "panel_id": 3, "speaker": "Yuki", "text": "You can't do it alone, Kaito.", "type": "dialogue" }
+      ]
+    },
+    {
+      "page_number": 2,
+      "panels": [
+        { "panel_id": 1, "speaker": "Kaito", "text": "Watch me.", "type": "dialogue" },
+        { "panel_id": 2, "speaker": null, "text": "CRASH", "type": "sfx" },
+        { "panel_id": 3, "speaker": null, "text": "The ground shook as the beast appeared.", "type": "narration" },
+        { "panel_id": 4, "speaker": "Kaito", "text": "What the... it's huge!", "type": "dialogue" }
+      ]
+    },
+    {
+      "page_number": 3,
+      "panels": [
+        { "panel_id": 1, "speaker": "Yuki", "text": "Kaito, behind you!", "type": "dialogue" },
+        { "panel_id": 2, "speaker": null, "text": "WHOOSH", "type": "sfx" },
+        { "panel_id": 3, "speaker": "Kaito", "text": "Thanks, Yuki. I owe you one.", "type": "dialogue" },
+        { "panel_id": 4, "speaker": null, "text": "Danger Zone — Do Not Enter", "type": "sign" },
+        { "panel_id": 5, "speaker": "Yuki", "text": "We need to fall back. This area is sealed off.", "type": "dialogue" }
+      ]
+    },
+    {
+      "page_number": 4,
+      "panels": [
+        { "panel_id": 1, "speaker": "Kaito", "text": "No. I made a promise to the elder.", "type": "dialogue" },
+        { "panel_id": 2, "speaker": "Yuki", "text": "A promise won't mean anything if you're dead!", "type": "dialogue" },
+        { "panel_id": 3, "speaker": null, "text": "The silence between them was deafening.", "type": "narration" },
+        { "panel_id": 4, "speaker": "Kaito", "text": "Then stay close. We finish this together.", "type": "dialogue" }
+      ]
+    }
+  ]
+}

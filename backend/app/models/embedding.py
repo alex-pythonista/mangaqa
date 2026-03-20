@@ -7,7 +7,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import BaseModel
 
-EMBEDDING_DIMENSION = 1536  # Will adjust in Phase 3 when model is chosen
+EMBEDDING_DIMENSION = 384  # all-MiniLM-L6-v2
 
 
 class Embedding(BaseModel):

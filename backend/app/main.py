@@ -2,7 +2,7 @@ import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.logging_config import setup_logging
@@ -13,7 +13,8 @@ from sqlalchemy import text
 
 from app.config import settings
 from app.database import async_session, engine
-from app.routers import chapters, health, projects
+from app.routers import auth, chapters, health, jobs, projects
+from app.services.auth import get_current_user
 
 
 @asynccontextmanager
@@ -42,6 +43,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Public routes
 app.include_router(health.router, tags=["health"])
-app.include_router(projects.router, prefix="/api", tags=["projects"])
-app.include_router(chapters.router, prefix="/api", tags=["chapters"])
+app.include_router(auth.router, prefix="/api", tags=["auth"])
+
+# Protected routes — require JWT auth
+app.include_router(projects.router, prefix="/api", tags=["projects"], dependencies=[Depends(get_current_user)])
+app.include_router(chapters.router, prefix="/api", tags=["chapters"], dependencies=[Depends(get_current_user)])
+app.include_router(jobs.router, prefix="/api", tags=["jobs"], dependencies=[Depends(get_current_user)])

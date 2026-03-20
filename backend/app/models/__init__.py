@@ -5,6 +5,7 @@ from app.models.embedding import Embedding
 from app.models.job import AnalysisJob
 from app.models.project import Project
 from app.models.result import QAResult
+from app.models.user import User
 
 __all__ = [
     "Base",
@@ -15,4 +16,5 @@ __all__ = [
     "AnalysisJob",
     "Project",
     "QAResult",
+    "User",
 ]

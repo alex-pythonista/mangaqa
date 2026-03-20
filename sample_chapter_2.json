@@ -1,0 +1,51 @@
+{
+  "chapter_number": 2,
+  "title": "Into the Abyss",
+  "pages": [
+    {
+      "page_number": 1,
+      "panels": [
+        { "panel_id": 1, "speaker": null, "text": "Three days had passed since the encounter with the beast.", "type": "narration" },
+        { "panel_id": 2, "speaker": "Kaito", "text": "The elder said the seal is deep underground.", "type": "dialogue" },
+        { "panel_id": 3, "speaker": "Yuki", "text": "Underground? You mean the old mines?", "type": "dialogue" }
+      ]
+    },
+    {
+      "page_number": 2,
+      "panels": [
+        { "panel_id": 1, "speaker": "Kaito", "text": "Yeah. No one has gone down there in years.", "type": "dialogue" },
+        { "panel_id": 2, "speaker": null, "text": "\u5371\u967a\u7981\u6b62\u533a\u57df", "type": "sign" },
+        { "panel_id": 3, "speaker": "Yuki", "text": "Kaito, that sign... it says \u7acb\u5165\u7981\u6b62.", "type": "dialogue" },
+        { "panel_id": 4, "speaker": "Kaito", "text": "I know what it says. We're going anyway.", "type": "dialogue" }
+      ]
+    },
+    {
+      "page_number": 3,
+      "panels": [
+        { "panel_id": 1, "speaker": null, "text": "RUMBLE", "type": "sfx" },
+        { "panel_id": 2, "speaker": "Yuki", "text": "The ground is shaking!", "type": "dialogue" },
+        { "panel_id": 3, "speaker": "Kaito", "text": "Stay close. We must proceed with utmost caution and deliberation, my dear companion.", "type": "dialogue" },
+        { "panel_id": 4, "speaker": null, "text": "The darkness swallowed them whole.", "type": "narration" }
+      ]
+    },
+    {
+      "page_number": 4,
+      "panels": [
+        { "panel_id": 1, "speaker": "Yuki", "text": "I can't see anything. Where are you?", "type": "dialogue" },
+        { "panel_id": 2, "speaker": "Kaito", "text": "Right here. Don't let go of my hand.", "type": "dialogue" },
+        { "panel_id": 3, "speaker": null, "text": "SCREECH", "type": "sfx" },
+        { "panel_id": 4, "speaker": "Yuki", "text": "What was that?!", "type": "dialogue" },
+        { "panel_id": 5, "speaker": "Kaito", "text": "Lol no idea but it sounded pretty funny actually.", "type": "dialogue" }
+      ]
+    },
+    {
+      "page_number": 5,
+      "panels": [
+        { "panel_id": 1, "speaker": null, "text": "A faint glow appeared ahead.", "type": "narration" },
+        { "panel_id": 2, "speaker": "Kaito", "text": "There! The seal chamber!", "type": "dialogue" },
+        { "panel_id": 3, "speaker": "Yuki", "text": "It's beautiful... and terrifying.", "type": "dialogue" },
+        { "panel_id": 4, "speaker": "Kaito", "text": "This is what the old man talked about. The ancient barrier.", "type": "dialogue" }
+      ]
+    }
+  ]
+}
