@@ -42,12 +42,6 @@ npm run dev
 - Migrations: Alembic (async) in `backend/alembic/`
 - DB connection uses Session Pooler (pgbouncer) — requires `statement_cache_size=0` in connect_args
 
-### Database Schema
-
-![Database schema](mangaqa_db_schema.png)
-
-6 tables: `projects` → `chapters` → `dialogue_lines` → `embeddings`, `projects` → `analysis_jobs` → `qa_results`, with `qa_results` also referencing `dialogue_lines`.
-
 ### Database Migrations
 ```bash
 cd backend

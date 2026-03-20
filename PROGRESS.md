@@ -5,56 +5,56 @@
 ---
 
 ## Phase 1: Project Setup & Infrastructure
-**Status:** `NOT STARTED`
-**Started:** —
-**Completed:** —
+**Status:** `COMPLETED`
+**Started:** 2026-03-19
+**Completed:** 2026-03-19
 
-- [ ] 1.1 Repository Setup
-  - [ ] Initialize git repo
-  - [ ] Create monorepo structure (`/frontend` + `/backend`)
-  - [ ] Add `.gitignore`
-  - [ ] Add `README.md`
-- [ ] 1.2 Backend Scaffold
-  - [ ] Python virtual environment
-  - [ ] Install core dependencies
-  - [ ] FastAPI app + health check
-  - [ ] Environment config (`.env`)
-  - [ ] Alembic setup
-- [ ] 1.3 Database Setup (Supabase)
-  - [ ] Create Supabase project
-  - [ ] Enable pgvector
-  - [ ] Design + create schema
-  - [ ] Run initial migration
-- [ ] 1.4 Frontend Scaffold
-  - [ ] Vite + React + TypeScript
-  - [ ] Install dependencies
-  - [ ] Routing skeleton
-  - [ ] API client utility
+- [x] 1.1 Repository Setup
+  - [x] Initialize git repo
+  - [x] Create monorepo structure (`/frontend` + `/backend`)
+  - [x] Add `.gitignore`
+  - [x] Add `README.md`
+- [x] 1.2 Backend Scaffold
+  - [x] Python virtual environment
+  - [x] Install core dependencies
+  - [x] FastAPI app + health check
+  - [x] Environment config (`.env`)
+  - [x] Alembic setup
+- [x] 1.3 Database Setup (Supabase)
+  - [x] Create Supabase project
+  - [x] Enable pgvector
+  - [x] Design + create schema
+  - [x] Run initial migration
+- [x] 1.4 Frontend Scaffold
+  - [x] Vite + React + TypeScript
+  - [x] Install dependencies
+  - [x] Routing skeleton
+  - [x] API client utility
 
 ---
 
 ## Phase 2: Data Upload & Storage Pipeline
-**Status:** `NOT STARTED`
-**Started:** —
-**Completed:** —
+**Status:** `COMPLETED`
+**Started:** 2026-03-20
+**Completed:** 2026-03-20
 
-- [ ] 2.1 Upload API
-  - [ ] `POST /api/projects`
-  - [ ] `GET /api/projects`
-  - [ ] `GET /api/projects/{id}`
-  - [ ] `DELETE /api/projects/{id}`
-  - [ ] `POST /api/projects/{id}/chapters`
-  - [ ] `GET /api/projects/{id}/chapters`
-- [ ] 2.2 JSON Validation & Parsing
-  - [ ] Pydantic upload models
-  - [ ] Validation + error messages
-  - [ ] Store to DB
-- [ ] 2.3 Frontend — Upload Flow
-  - [ ] Dashboard page
-  - [ ] Create project form
-  - [ ] Project view with chapters
-  - [ ] JSON upload with preview
-  - [ ] Success/error feedback
+- [x] 2.1 Upload API
+  - [x] `POST /api/projects`
+  - [x] `GET /api/projects`
+  - [x] `GET /api/projects/{id}`
+  - [x] `DELETE /api/projects/{id}`
+  - [x] `POST /api/projects/{id}/chapters`
+  - [x] `GET /api/projects/{id}/chapters`
+- [x] 2.2 JSON Validation & Parsing
+  - [x] Pydantic upload models
+  - [x] Validation + error messages
+  - [x] Store to DB
+- [x] 2.3 Frontend — Upload Flow
+  - [x] Dashboard page
+  - [x] Create project form
+  - [x] Project view with chapters
+  - [x] JSON upload with preview
+  - [x] Success/error feedback
 
 ---
 
@@ -190,4 +190,6 @@
 ---
 
 ## Notes
-_Add any notes, blockers, or decisions here as you go._
+- Supabase direct connection requires IPv6; using **Session Pooler** (pgbouncer) instead — requires `statement_cache_size=0` in asyncpg connect_args
+- Alembic configured for async migrations with pgbouncer compatibility
+- pgvector extension enabled via initial Alembic migration

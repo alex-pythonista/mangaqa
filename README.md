@@ -42,6 +42,11 @@ npm run dev
 ### Database
 
 1. Create a [Supabase](https://supabase.com) project
-2. Enable the `vector` extension in Supabase SQL editor: `CREATE EXTENSION IF NOT EXISTS vector;`
-3. Copy the connection string to `backend/.env`
-4. Run migrations: `cd backend && alembic upgrade head`
+2. Copy the **Session Pooler** connection string to `backend/.env` (use `postgresql+asyncpg://` prefix)
+3. Run migrations: `cd backend && .venv/bin/alembic upgrade head`
+
+#### Schema
+
+![Database schema](mangaqa_db_schema.png)
+
+6 tables: `projects` → `chapters` → `dialogue_lines` → `embeddings`, `projects` → `analysis_jobs` → `qa_results`, with `qa_results` also referencing `dialogue_lines`.
