@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: mangaqa-api
+    runtime: docker
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: OPENROUTER_MODEL
+        value: deepseek/deepseek-v3.2-20251201
+      - key: OPENROUTER_RATE_LIMIT
+        value: "20"
+      - key: EMBEDDING_MODEL_NAME
+        value: BAAI/bge-small-en-v1.5
+      - key: HF_API_URL
+        value: https://router.huggingface.co/hf-inference/models
+      - key: HF_API_TOKEN
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE_HOURS
+        value: "24"
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: ENV
+        value: production
+      - key: LOG_LEVEL
+        value: INFO

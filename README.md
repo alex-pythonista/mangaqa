@@ -14,7 +14,8 @@ A web-based manga translation QA tool that automatically evaluates translated ma
 - **Frontend**: React (Vite + TypeScript) + Tailwind CSS
 - **Backend**: FastAPI (Python)
 - **Database**: PostgreSQL + pgvector (Supabase)
-- **AI**: OpenRouter API (LLM + embeddings)
+- **AI**: OpenRouter API (LLM) + HuggingFace Inference API (embeddings)
+- **Deployment**: Render (backend) + Vercel (frontend)
 
 ## Setup
 
@@ -50,3 +51,45 @@ npm run dev
 ![Database schema](mangaqa_db_schema.png)
 
 6 tables: `projects` → `chapters` → `dialogue_lines` → `embeddings`, `projects` → `analysis_jobs` → `qa_results`, with `qa_results` also referencing `dialogue_lines`.
+
+### Create Admin User
+
+```bash
+cd backend
+# Set ADMIN_USERNAME and ADMIN_PASSWORD in .env first
+.venv/bin/python create_user.py
+```
+
+## Deployment
+
+### Backend → Render
+
+1. Go to [render.com](https://render.com) → **New → Web Service**
+2. Connect the GitHub repo
+3. Render reads `render.yaml` and uses `backend/Dockerfile`
+4. Set secret env vars in Render dashboard:
+   - `DATABASE_URL` — Supabase Session Pooler connection string (`postgresql+asyncpg://...`)
+   - `OPENROUTER_API_KEY` — your OpenRouter API key
+   - `HF_API_TOKEN` — your [HuggingFace token](https://huggingface.co/settings/tokens)
+   - `JWT_SECRET` — generate with `python -c "import secrets; print(secrets.token_hex(32))"`
+   - `ADMIN_USERNAME` / `ADMIN_PASSWORD` — login credentials
+   - `CORS_ORIGINS` — your Vercel frontend URL (set after Vercel deploy)
+5. Deploy → verify at `https://your-app.onrender.com/health`
+
+### Frontend → Vercel
+
+1. Go to [vercel.com](https://vercel.com) → **New Project**
+2. Import the same GitHub repo
+3. Configure:
+   - **Root Directory**: `frontend`
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Add env var: `VITE_API_BASE_URL` = `https://your-app.onrender.com`
+5. Deploy
+
+### Connect Frontend ↔ Backend
+
+1. Copy the Vercel URL (e.g. `https://mangaqa.vercel.app`)
+2. Update Render env var: `CORS_ORIGINS=https://mangaqa.vercel.app`
+3. Render redeploys automatically with the new CORS setting
