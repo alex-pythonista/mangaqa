@@ -6,6 +6,7 @@ from app.database import async_session
 router = APIRouter()
 
 
+@router.head("/health")
 @router.get("/health")
 async def health_check():
     db_status = "ok"
